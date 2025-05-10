@@ -325,51 +325,51 @@ namespace LINQAssignment
             #endregion
 
             #region LINQ - Partitioning Operators
-            Console.WriteLine("\n=== LINQ - Partitioning Operators ===");
-            // 1. First 3 orders from Washington
-            var firstThreeOrders = (from c in customers where c.Region == "Washington" from o in c.Orders select o).Take(3);
-            Console.WriteLine("1. First 3 orders from Washington:");
-            foreach (var o in firstThreeOrders) Console.WriteLine($"  Total: ${o.Total}, Date: {o.OrderDate:yyyy-MM-dd}");
+            //Console.WriteLine("\n=== LINQ - Partitioning Operators ===");
+            //// 1. First 3 orders from Washington
+            //var firstThreeOrders = (from c in customers where c.Region == "Washington" from o in c.Orders select o).Take(3);
+            //Console.WriteLine("1. First 3 orders from Washington:");
+            //foreach (var o in firstThreeOrders) Console.WriteLine($"  Total: ${o.Total}, Date: {o.OrderDate:yyyy-MM-dd}");
 
-            // 2. All but first 2 orders from Washington
-            var skipTwoOrders = (from c in customers where c.Region == "Washington" from o in c.Orders select o).Skip(2);
-            Console.WriteLine("\n2. Orders from Washington (skip first 2):");
-            foreach (var o in skipTwoOrders) Console.WriteLine($"  Total: ${o.Total}, Date: {o.OrderDate:yyyy-MM-dd}");
+            //// 2. All but first 2 orders from Washington
+            //var skipTwoOrders = (from c in customers where c.Region == "Washington" from o in c.Orders select o).Skip(2);
+            //Console.WriteLine("\n2. Orders from Washington (skip first 2):");
+            //foreach (var o in skipTwoOrders) Console.WriteLine($"  Total: ${o.Total}, Date: {o.OrderDate:yyyy-MM-dd}");
 
-            // 3. Elements until number < position
-            var untilLessThanPosition = arr1.TakeWhile((n, i) => n >= i);
-            Console.WriteLine("\n3. Elements until number < position:");
-            Console.WriteLine($"  {string.Join(", ", untilLessThanPosition)}");
+            //// 3. Elements until number < position
+            //var untilLessThanPosition = arr1.TakeWhile((n, i) => n >= i);
+            //Console.WriteLine("\n3. Elements until number < position:");
+            //Console.WriteLine($"  {string.Join(", ", untilLessThanPosition)}");
 
-            // 4. Elements from first divisible by 3
-            var fromDivisibleBy3 = arr1.SkipWhile(n => n % 3 != 0);
-            Console.WriteLine("\n4. Elements from first divisible by 3:");
-            Console.WriteLine($"  {string.Join(", ", fromDivisibleBy3)}");
+            //// 4. Elements from first divisible by 3
+            //var fromDivisibleBy3 = arr1.SkipWhile(n => n % 3 != 0);
+            //Console.WriteLine("\n4. Elements from first divisible by 3:");
+            //Console.WriteLine($"  {string.Join(", ", fromDivisibleBy3)}");
 
             #endregion
 
             #region LINQ - Grouping Operators
-            Console.WriteLine("\n=== LINQ - Grouping Operators ===");
-            // 1. Group numbers by remainder when divided by 5
-            List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-            var groupedByRemainder = from n in numbers group n by n % 5 into g select new { Remainder = g.Key, Numbers = g };
-            Console.WriteLine("1. Numbers grouped by remainder (mod 5):");
-            foreach (var g in groupedByRemainder) Console.WriteLine($"  Remainder {g.Remainder}: {string.Join(", ", g.Numbers)}");
+            //Console.WriteLine("\n=== LINQ - Grouping Operators ===");
+            //// 1. Group numbers by remainder when divided by 5
+            //List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            //var groupedByRemainder = from n in numbers group n by n % 5 into g select new { Remainder = g.Key, Numbers = g };
+            //Console.WriteLine("1. Numbers grouped by remainder (mod 5):");
+            //foreach (var g in groupedByRemainder) Console.WriteLine($"  Remainder {g.Remainder}: {string.Join(", ", g.Numbers)}");
 
-            // 2. Group words by first letter
-            var groupedByFirstLetter = from w in dictionary group w by w[0] into g select new { FirstLetter = g.Key, Words = g };
-            Console.WriteLine("\n2. Words grouped by first letter:");
-            foreach (var g in groupedByFirstLetter) Console.WriteLine($"  {g.FirstLetter}: {string.Join(", ", g.Words)}");
+            //// 2. Group words by first letter
+            //var groupedByFirstLetter = from w in dictionary group w by w[0] into g select new { FirstLetter = g.Key, Words = g };
+            //Console.WriteLine("\n2. Words grouped by first letter:");
+            //foreach (var g in groupedByFirstLetter) Console.WriteLine($"  {g.FirstLetter}: {string.Join(", ", g.Words)}");
 
-            // 3. Group by anagram (same characters)
-            string[] arr3 = { "from", "salt", "earn", "last", "near", "form" };
-            var groupedByAnagram = arr3.GroupBy(w => string.Concat(w.OrderBy(c => c)), StringComparer.OrdinalIgnoreCase)
-                                       .Select(g => new { Key = g.Key, Words = g });
-            Console.WriteLine("\n3. Words grouped by anagram:");
-            foreach (var g in groupedByAnagram) Console.WriteLine($"  {g.Key}: {string.Join(", ", g.Words)}");
+            //// 3. Group by anagram (same characters)
+            //string[] arr3 = { "from", "salt", "earn", "last", "near", "form" };
+            //var groupedByAnagram = arr3.GroupBy(w => string.Concat(w.OrderBy(c => c)), StringComparer.OrdinalIgnoreCase)
+            //                           .Select(g => new { Key = g.Key, Words = g });
+            //Console.WriteLine("\n3. Words grouped by anagram:");
+            //foreach (var g in groupedByAnagram) Console.WriteLine($"  {g.Key}: {string.Join(", ", g.Words)}");
 
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey(); 
+            //Console.WriteLine("\nPress any key to exit...");
+            //Console.ReadKey(); 
             #endregion
         }
     }
